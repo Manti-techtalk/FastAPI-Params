@@ -2,9 +2,11 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get('/')
-async def read():
-    return {"messege": "continuing fastapi as a ackend service"}
+@app.get('/items/{id}')
+async def read(id):
+    arr = [{"messege": "continuing fastapi as a ackend service"},{"Item":id}]
+    return arr
+
 
 @app.post('/')
 async def create(data):
